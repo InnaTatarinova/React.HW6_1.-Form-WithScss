@@ -1,0 +1,64 @@
+$gap: 20px;
+$mainColor: rgb(231, 133, 133);
+$blueColor: blue;
+
+@mixin color_border($color) {
+    border: 2px solid $color;
+}
+
+@mixin mainTextSolution() {
+    font-size: 24px;
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic;
+    font-weight: 900;
+}
+
+form {
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 2fr 1fr;
+    column-gap: gap;
+    row-gap: gap;
+    padding: 50px 150px 50px 150px;
+    grid-template-areas:
+        "input1 input2 input3"
+        "input4 input4 input4"
+        "button button button";
+    @include color_border($mainColor);
+    background-color: $mainColor;
+    @include mainTextSolution();
+
+    input{
+        background-color: burlywood;
+        @include color_border($blueColor);
+
+        input:hover{
+            background-color: red;
+        }
+    }
+
+    
+}
+
+.inputField1 {
+    grid-area: input1;
+}
+
+.inputField2 {
+    grid-area: input2;
+}
+
+.inputField3 {
+    grid-area: input3;
+}
+
+.inputField4 {
+    grid-area: input4;
+}
+
+button {
+    grid-area: button;
+    background-color: $blueColor;
+    @include mainTextSolution();
+}
